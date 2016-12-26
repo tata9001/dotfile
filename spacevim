@@ -15,10 +15,14 @@ function! UserInit()
     " Put private plugins
     Plug 'yggdroot/indentline'
     Plug 'jiangmiao/auto-pairs'
-    " Plug 'davidhalter/jedi-vim'
+    Plug 'davidhalter/jedi-vim'
     Plug 'ekalinin/dockerfile.vim'
     Plug 'ervandew/supertab'
     Plug 'rking/ag.vim'
+    " Exclude plugins
+    Exclude 'Raimondi/delimitMate'
+    Exclude 'vim-scripts/errormarker.vim'
+
 endfunction
 
 " Customize configuration
@@ -30,7 +34,25 @@ function! UserConfig()
     let g:ctrlp_max_height = 20
     let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
     let g:UltiSnipsExpandTrigger = '<tab>'
-    " inoremap <expr><C-i>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+	" disable omni for python
+	let g:neocomplete#sources#omni#input_patterns.python = ''
+
+	"  jedi-vim plugin {
+        let g:jedi#completions_enabled = 1
+        let g:jedi#auto_initialization = 1
+        let g:jedi#auto_vim_configuration = 1
+        let g:jedi#use_tabs_not_buffers = 1
+        let g:jedi#use_splits_not_buffers = "left"
+
+        " default Keybinding
+        let g:jedi#goto_assignments_command = "<leader>ga"
+        let g:jedi#goto_definitions_command = "<leader>gf"
+        let g:jedi#documentation_command = "<Leander>gd"
+        let g:jedi#usages_command = "<leader>gu"
+        let g:jedi#completions_command = "<C-Space>"
+	" }
+
     """ customize config
     "" .bashrc or .zshrc add "stty -ixon"
     nnoremap <C-s> :w<CR>
@@ -41,4 +63,5 @@ function! UserConfig()
     " disable bell
     set vb t_vb=
     set cursorcolumn
+    set nobackup
 endfunction
