@@ -1,0 +1,15 @@
+[http]
+    # proxy     = http://127.0.0.1:8087
+    proxy       = socks5://127.0.0.1:1080
+    postBuffer  = 524288000
+[https]
+    # proxy     = http://127.0.0.1:8087
+    proxy       = socks5://127.0.0.1:1080
+[core]
+    editor      = vim
+    compression = -1
+[push]
+    default     = simple
+[user]
+    name        = Colin.Lee
+    email       = geek.colin@gmail.com
