@@ -2,7 +2,6 @@
 export ZSH=/Users/colin/.oh-my-zsh
 
 # ZSH_THEME="bhilburn/powerlevel9k"
-# ZSH_THEME="apple"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -75,9 +74,10 @@ if [ !  -f ~/.antigen/antigen.zsh ]; then
     mkdir -p ~/.antigen
     curl -SsL  -o ~/.antigen/antigen.zsh https://raw.githubusercontent.com/zsh-users/antigen/master/bin/antigen.zsh
 fi
+
 source ~/.antigen/antigen.zsh
 
-antigen theme bhilburn/powerlevel9k powerlevel9k
+antigen theme co1inlee/dotfile/themes/zsh colin
 
 antigen bundles <<EOBUNDLES
   git
