@@ -77,8 +77,6 @@ fi
 
 source ~/.antigen/antigen.zsh
 
-antigen theme co1inlee/dotfile/themes/zsh colin
-
 antigen bundles <<EOBUNDLES
   git
   osx
@@ -94,18 +92,6 @@ EOBUNDLES
 
 ### Plugin Configuration
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=8
-
-POWERLEVEL9K_MODE='awesome-patched'
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
-POWERLEVEL9K_SHORTEN_DELIMITER=".."
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
-POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="%{%B%F{yellow}%K{blue}%}CMD%{%b%f%k%F{blue}%} %{%f%}"
-POWERLEVEL9K_TIME_FORMAT="%D{%D %T}"
-POWERLEVEL9K_SHOW_CHANGESET=false
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(background_jobs virtualenv time history status)
 
 # apply plugin and theme
 antigen apply
