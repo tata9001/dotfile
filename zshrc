@@ -64,10 +64,18 @@ alias vim="mvim -v"
 alias vi="mvim -v"
 alias pc="proxychains4"
 alias e="emacs -nw"
+## proxy
 alias set_http_proxy="export http_proxy=http://localhost:8087 https_proxy=http://localhost:8087"
 alias set_socks_proxy="export http_proxy=socks5://localhost:1080 https_proxy=socks5://localhost:1080"
 alias unset_proxy="unset http_proxy https_proxy"
-
+## quick file
+alias -s gz='tar -xzvf'
+alias -s tgz='tar -xzvf'
+alias -s zip='unzip'
+alias -s bz2='tar -xjvf'
+alias -s py=vim
+alias -s sh=vim
+alias -s zsh=vim
 ### Plugin lists
 ## check antigen 
 if [ !  -f ~/.antigen/antigen.zsh ]; then

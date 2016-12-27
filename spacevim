@@ -73,4 +73,5 @@ function! UserConfig()
     set undodir=~/.undodir
     set autoread
     set autowriteall
+    set wrap
 endfunction
