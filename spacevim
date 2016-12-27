@@ -11,6 +11,7 @@ function! UserInit()
     Layer 'text-align'
     Layer 'git'
     Layer 'auto-completion'
+    " Layer 'python'
 
     " Put private plugins
     Plug 'yggdroot/indentline'
@@ -36,9 +37,6 @@ function! UserConfig()
     let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
     let g:UltiSnipsExpandTrigger = '<tab>'
 
-	""" disable omni for python
-	""let g:neocomplete#sources#omni#input_patterns.python = ''
-
     "  jedi-vim plugin {
        let g:jedi#completions_enabled = 1
        let g:jedi#auto_initialization = 1
@@ -52,6 +50,12 @@ function! UserConfig()
        let g:jedi#documentation_command = "<Leander>gd"
        let g:jedi#usages_command = "<leader>gu"
        let g:jedi#completions_command = "<C-Space>"
+
+		" disable for python
+	   if !exists('g:neocomplete#sources#omni#input_patterns')
+		   let g:neocomplete#sources#omni#input_patterns = {}
+	   endif
+	   let g:neocomplete#sources#omni#input_patterns.python = '' 
     " }
 
     """ customize config
