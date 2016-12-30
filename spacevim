@@ -74,4 +74,5 @@ function! UserConfig()
     set autoread
     set autowriteall
     set wrap
+    set term=screen-256color
 endfunction
