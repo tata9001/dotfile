@@ -141,7 +141,7 @@
   (fset 'evil-visual-update-x-selection 'ignore)
 
   ;; key bindings  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;; (define-key evil-insert-state-map  (kbd "C-j C-j") 'evil-change-to-previous-state)
+  (define-key evil-insert-state-map  (kbd "C-j C-j") 'evil-change-to-previous-state)
   (spacemacs/declare-prefix "o" "owner")
 
   ;; youdao Dict
