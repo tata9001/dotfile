@@ -18,12 +18,12 @@
      git
      docker
      markdown
-     osx
      ranger
      shell-scripts
      vimscript
      search-engine
      docker
+     osx
      (chinese :variables chinese-enable-youdao-dict t)
      (org :variables org-enable-reveal-js-support t)
      (shell :variables
@@ -43,7 +43,7 @@
      (colors :variables colors-enable-nyan-cat-progress-bar t)
      (ibuffer :variables ibuffer-group-buffers-by 'projects))
 
-   dotspacemacs-additional-packages'()
+   dotspacemacs-additional-packages'(blog-admin)
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages '(
                                     ido, tern, vi-tilde-fringe)
@@ -141,7 +141,7 @@
   (fset 'evil-visual-update-x-selection 'ignore)
 
   ;; key bindings  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;; (define-key evil-insert-state-map  (kbd "C-j C-j") 'evil-change-to-previous-state)
+  (define-key evil-insert-state-map  (kbd "C-j C-j") 'evil-change-to-previous-state)
   (spacemacs/declare-prefix "o" "owner")
 
   ;; youdao Dict
@@ -185,5 +185,19 @@
   (delete-selection-mode 1)
   (setq which-key-side-window-max-height 0.8)
   (setq which-key-side-window-max-width 0.1)
+  ;; upload resource to qiniu
+  (defun qiniu-qshell (command)
+    (let ((command-str (format "qshell qupload 10 %s" command)))
+      (shell-command-to-string command-str)))
+  (defun qiniu-upload ()
+    (interactive)
+    (qiniu-qshell "~/DataCenter/qiniu/conf.json")
+    (message "upload OK"))
 
   )
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+)
