@@ -27,7 +27,7 @@
      (chinese :variables chinese-enable-youdao-dict t)
      (org :variables org-enable-reveal-js-support t)
      (shell :variables
-            shell-default-shell 'eshell
+            shell-default-shell 'term
             shell-default-height 60
             shell-default-term-shell "zsh")
      (syntax-checking :variables
@@ -174,6 +174,7 @@
 
   ;; org-mode config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; org-mode auto new line
+  (autoload 'space-doc-mode "space-doc" nil 'interactive)
   (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
   (add-hook 'org-mode-hook 'org-indent-mode)
   ;; org to el
@@ -193,7 +194,6 @@
     (interactive)
     (qiniu-qshell "~/DataCenter/qiniu/conf.json")
     (message "upload OK"))
-
   )
 (defun dotspacemacs/emacs-custom-settings ()
   "Emacs custom settings.

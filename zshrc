@@ -1,8 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/colin/.oh-my-zsh
 
-# ZSH_THEME="bhilburn/powerlevel9k"
-ZSH_THEME="colin"
+# ZSH_THEME="colin"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -48,6 +47,8 @@ HIST_STAMPS="mm/dd/yyyy"
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git virtualenv docker autojump colored-man-pages)
 
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
 ### User configuration
 source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
@@ -59,23 +60,21 @@ TERM=xterm-256color
 stty -ixon
 
 ### alias settings
-alias v="mvim -f"
 alias vim="mvim -v"
 alias vi="mvim -v"
-alias pc="proxychains4"
+alias pc="proxychains4 -q"
 alias e="emacs -nw"
+alias ls="ls --color"
+
 ## proxy
-alias set_http_proxy="export http_proxy=http://localhost:8087 https_proxy=http://localhost:8087"
-alias set_socks_proxy="export http_proxy=socks5://localhost:1080 https_proxy=socks5://localhost:1080"
-alias unset_proxy="unset http_proxy https_proxy"
+alias sps="export ALL_PROXY=socks5://127.0.0.1:1080"
+alias spt="export ALL_PROXY=http://127.0.0.1:8087"
+alias unset_proxy="unset ALL_PROXY"
 ## quick file
 alias -s gz='tar -xzvf'
 alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
-alias -s py=vim
-alias -s sh=vim
-alias -s zsh=vim
 ### Plugin lists
 ## check antigen 
 if [ !  -f ~/.antigen/antigen.zsh ]; then
@@ -84,28 +83,38 @@ if [ !  -f ~/.antigen/antigen.zsh ]; then
     curl -SsL  -o ~/.antigen/antigen.zsh https://raw.githubusercontent.com/zsh-users/antigen/master/bin/antigen.zsh
 fi
 
-source ~/.antigen/antigen.zsh
+#######################################################################
+#                      oh-my-zsh Packages Manger                      #
+#######################################################################
 
-antigen bundles <<EOBUNDLES
-  git
-  osx
-  autojump
-  virtualenv
-  docker
-  docker-compose
-  colored-man-pages
-  zsh-users/zsh-autosuggestions
-  zsh-users/zsh-syntax-highlighting
+source ~/.zplug/init.zsh
 
-EOBUNDLES
+# Load themes file
+zplug "~/dotfile/zsh/colin", from:local, as:theme
 
-### Plugin Configuration
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=8
+# Load plugins
+zplug "zplug/zplug", lazy:true
+zplug "~/dotfile/zsh/alias", from:local
+zplug "plugins/osx", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin*  ]]"
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/autojump", from:oh-my-zsh 
+zplug "plugins/virtualenv", from:oh-my-zsh 
+zplug "plugins/docker", from:oh-my-zsh, hook-load:"source"
+zplug "plugins/docker-compose", from:oh-my-zsh 
+zplug "plugins/colored-man-pages", from:oh-my-zsh 
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-syntax-highlighting"
 
-# apply plugin and theme
-antigen apply
 
-# ======= percol ======
+# zplug check returns true if all packages are installed
+# # Therefore, when it returns false, run zplug install
+if ! zplug check; then
+    zplug install
+fi
+
+# source plugins and add commands to the PATH
+zplug load 
+
 # configfile: ~/.percol.d/rc.py
 function exists { which $1 &> /dev/null }
 
