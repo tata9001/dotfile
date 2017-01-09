@@ -43,10 +43,9 @@
      (colors :variables colors-enable-nyan-cat-progress-bar t)
      (ibuffer :variables ibuffer-group-buffers-by 'projects))
 
-   dotspacemacs-additional-packages'(blog-admin)
+   dotspacemacs-additional-packages'()
    dotspacemacs-frozen-packages '()
-   dotspacemacs-excluded-packages '(
-                                    ido, tern, vi-tilde-fringe)
+   dotspacemacs-excluded-packages '(ido, tern, vi-tilde-fringe)
 
    dotspacemacs-install-packages 'used-only))
 
