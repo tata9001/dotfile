@@ -1,5 +1,10 @@
 let mapleader="\<Space>"
 nnoremap ; :
+"" .bashrc or .zshrc add "stty -ixon"
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <Esc>:w<CR>l
+vnoremap <C-s> <Esc>:w<CR>
+
 
 " here are some basic customizations, please refer to the top of the vimrc file for all possible options
 let g:spacevim_default_indent = 4

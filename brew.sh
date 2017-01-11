@@ -6,6 +6,7 @@
 brew tap caskroom/cask
 brew tap railwaycat/emacsmacport
 brew tap caskroom/cask
+brew tap universal-ctags/universal-ctags
 
 # Make sure we’re using the latest Homebrew.
 brew update
@@ -20,6 +21,8 @@ brew install tree ccat autojump
 brew install htop iftop
 brew install emacs-mac --with-spacemacs-icon --HEAD --with-gnutls
 brew install macvim  --with-lua
+brew install --HEAD universal-ctags
+
 
 # Remove outdated versions from the cellar.
 brew cleanup
