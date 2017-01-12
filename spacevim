@@ -62,12 +62,7 @@ function! UserConfig()
     let g:jedi#documentation_command = "<Leander>gd"
     let g:jedi#usages_command = "<leader>gu"
     let g:jedi#completions_command = "<C-Space>"
-
-    " disable for python
-	if !exists('g:neocomplete#sources#omni#input_patterns')
-	    let g:neocomplete#sources#omni#input_patterns = {}
-	endif
-    let g:neocomplete#sources#omni#input_patterns.python = ''
+    autocmd FileType python setlocal omnifunc=jedi#completions
     " }
 
     """ customize config
