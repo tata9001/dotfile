@@ -54,7 +54,7 @@ let g:neosnippet#snippets_directory=[
 \ ]
 
 " Reload .vimrc
-nnoremap <Leader>fR :source ~/.SpaceVim.d/init.vim<CR>
+nnoremap <Leader>fR :source %<CR>
 
 " Startify
 nnoremap <silent><Leader>bh :Startify<CR>
