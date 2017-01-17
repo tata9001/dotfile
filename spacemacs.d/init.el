@@ -31,7 +31,7 @@
             shell-default-height 60
             shell-default-term-shell "zsh")
      (syntax-checking :variables
-                      syntax-checking-enable-by-default t
+                      syntax-checking-enable-by-default nil
                       syntax-checking-enable-tooltips t
                       )
      (auto-completion :variables
@@ -140,7 +140,7 @@
   (fset 'evil-visual-update-x-selection 'ignore)
 
   ;; key bindings  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  (define-key evil-insert-state-map  (kbd "C-j C-j") 'evil-change-to-previous-state)
+  ;; (define-key evil-insert-state-map  (kbd "C-j C-j") 'evil-change-to-previous-state)
   (spacemacs/declare-prefix "o" "owner")
 
   ;; youdao Dict
@@ -157,8 +157,10 @@
   ;;               '((which-func-mode ("" which-func-format " "))))
 
   ;; auto complete config  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  (global-company-mode)
+  (global-set-key (kbd "s-/") 'hippie-expand)
   ;; abbrev
-  (add-hook 'after-init-hook 'global-company-mode)
+  (abbrev-mode 1)
   (define-abbrev-table 'global-abbrev-table '(
                         ("8mail" "geek.colin@gmail.com")
                         ("8name" "Colin.Lee")))
@@ -173,9 +175,9 @@
 
   ;; org-mode config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; org-mode auto new line
-  (autoload 'space-doc-mode "space-doc" nil 'interactive)
   (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
   (add-hook 'org-mode-hook 'org-indent-mode)
+  (autoload 'space-doc-mode "space-doc" nil 'interactive)
   ;; org to el
   ;; (org-babel-load-file (expand-file-name "colin.org" user-emacs-directory))
   (eval-after-load "org"
