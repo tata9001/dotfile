@@ -1,3 +1,6 @@
 [submodule "submodules/tmux"]
 	path = submodules/tmux
 	url = https://github.com/gpakosz/.tmux.git
+[submodule "submodules/spacemacs"]
+	path = submodules/spacemacs
+	url = https://github.com/syl20bnr/spacemacs.git

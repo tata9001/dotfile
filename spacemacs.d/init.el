@@ -13,6 +13,7 @@
      ivy
      better-defaults
      python
+     (go :variables go-tab-width 4)
      html
      emacs-lisp
      git
@@ -140,14 +141,15 @@
   (fset 'evil-visual-update-x-selection 'ignore)
 
   ;; key bindings  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;; (define-key evil-insert-state-map  (kbd "C-j C-j") 'evil-change-to-previous-state)
+  (setq-default evil-escape-key-sequence "jk")
+
   (spacemacs/declare-prefix "o" "owner")
 
   ;; youdao Dict
   (global-set-key (kbd "C-c y") 'youdao-dictionary-search-at-point+)
   (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
   ;; (,) add Space
-  (global-set-key (kbd ",") #'(lambda () (interactive) (insert ", ")))
+  ;; (global-set-key (kbd ",") #'(lambda () (interactive) (insert ", ")))
 
   ;; prog-mode config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   (add-hook 'prog-mode-hook 'which-function-mode)
