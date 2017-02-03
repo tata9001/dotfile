@@ -1,3 +1,6 @@
+" setting layers
+call SpaceVim#layers#load('lang#python')
+
 let mapleader="\<Space>"
 
 "" .bashrc or .zshrc add "stty -ixon"
@@ -69,15 +72,6 @@ let g:spacevim_colorscheme    = 'molokai'
 let g:spacevim_plugin_manager = 'dein'
 set guifont=Wingdings:h10
 
-"let g:spacevim_cache_dir = "/some/place/else"
-
-let g:spacevim_plugin_groups_exclude = []
-let g:spacevim_plugin_groups_include = ["easymotion/vim-easymotion"]
-"let g:spacevim_plugin_groups = ["core"]
-
-"let g:spacevim_disabled_plugins=[]
-"let g:spacevim_custom_plugins = []
-
 let g:spacevim_autocomplete_method = "neocomplete"
 
 let g:spacevim_enable_cursorcolumn = 1
@@ -87,3 +81,6 @@ let g:jedi#auto_initialization = 1
 let g:jedi#auto_vim_configuration = 1
 let g:jedi#use_tabs_not_buffers = 1
 let g:jedi#use_splits_not_buffers = "left"
+autocmd FileType python setlocal omnifunc=jedi#completions
+
+
