@@ -142,8 +142,9 @@
 
   ;; key bindings  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   (setq-default evil-escape-key-sequence "jk")
-
   (spacemacs/declare-prefix "o" "owner")
+  (define-key evil-normal-state-map (kbd "H") (kbd "^")) 
+  (define-key evil-normal-state-map (kbd "L") (kbd "$")) 
 
   ;; youdao Dict
   (global-set-key (kbd "C-c y") 'youdao-dictionary-search-at-point+)
