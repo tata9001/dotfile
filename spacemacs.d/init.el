@@ -107,15 +107,14 @@
    dotspacemacs-smooth-scrolling t
    dotspacemacs-line-numbers 'relative
    dotspacemacs-folding-method 'evil
-   dotspacemacs-smartparens-strict-mode t
+   dotspacemacs-smartparens-strict-mode nil
    dotspacemacs-smart-closing-parenthesis nil
    dotspacemacs-highlight-delimiters 'all
    dotspacemacs-persistent-server nil
    dotspacemacs-search-tools '("ag" "grep" "pt" "ack")
    dotspacemacs-default-package-repository nil
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup 'trailing
    ))
-
 (defun dotspacemacs/user-init ()
   (setq configuration-layer--elpa-archives
     '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
@@ -143,8 +142,8 @@
   ;; key bindings  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   (setq-default evil-escape-key-sequence "jk")
   (spacemacs/declare-prefix "o" "owner")
-  (define-key evil-normal-state-map (kbd "H") (kbd "^")) 
-  (define-key evil-normal-state-map (kbd "L") (kbd "$")) 
+  (define-key evil-normal-state-map (kbd "H") (kbd "^"))
+  (define-key evil-normal-state-map (kbd "L") (kbd "$"))
 
   ;; youdao Dict
   (global-set-key (kbd "C-c y") 'youdao-dictionary-search-at-point+)
