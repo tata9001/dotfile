@@ -50,12 +50,12 @@ setopt HIST_BEEP
 
 alias vim="mvim -v"
 alias vi="mvim -v"
-alias pc="proxychains4 -q"
+alias p="proxychains4 -q"
 alias e="emacs -nw"
 
 ## proxy
-alias sps="export ALL_PROXY=socks5://127.0.0.1:1080"
-alias spt="export ALL_PROXY=http://127.0.0.1:8087"
+alias ss="export ALL_PROXY=socks5://127.0.0.1:1080"
+alias sp="export ALL_PROXY=http://127.0.0.1:8087"
 alias unset_proxy="unset ALL_PROXY"
 
 ## quick file
