@@ -162,7 +162,7 @@
   (global-company-mode)
   (global-set-key (kbd "s-/") 'hippie-expand)
   ;; abbrev
-  (abbrev-mode 1)
+  (setq-default abbrev-mode t)
   (define-abbrev-table 'global-abbrev-table '(
                         ("8mail" "geek.colin@gmail.com")
                         ("8name" "Colin.Lee")))
