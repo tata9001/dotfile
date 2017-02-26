@@ -25,6 +25,7 @@
      search-engine
      docker
      osx
+     imenu-list
      (chinese :variables chinese-enable-youdao-dict t)
      (org :variables org-enable-reveal-js-support t)
      (shell :variables
