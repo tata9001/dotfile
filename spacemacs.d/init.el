@@ -109,7 +109,7 @@
    dotspacemacs-line-numbers 'relative
    dotspacemacs-folding-method 'evil
    dotspacemacs-smartparens-strict-mode nil
-   dotspacemacs-smart-closing-parenthesis nil
+   dotspacemacs-smart-closing-parenthesis t
    dotspacemacs-highlight-delimiters 'all
    dotspacemacs-persistent-server nil
    dotspacemacs-search-tools '("ag" "grep" "pt" "ack")
