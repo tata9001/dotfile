@@ -5,6 +5,7 @@
   (setq-default
    dotspacemacs-distribution 'spacemacs
    dotspacemacs-enable-lazy-installation 'nil
+
    dotspacemacs-ask-for-lazy-installation t
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers
@@ -145,16 +146,18 @@
   (spacemacs/declare-prefix "o" "owner")
   (define-key evil-normal-state-map (kbd "H") (kbd "^"))
   (define-key evil-normal-state-map (kbd "L") (kbd "$"))
+  (global-set-key (kbd "M-s e") 'iedit-mode)
 
   ;; youdao Dict
   (global-set-key (kbd "C-c y") 'youdao-dictionary-search-at-point+)
-  (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
+
+(spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
   ;; (,) add Space
   ;; (global-set-key (kbd ",") #'(lambda () (interactive) (insert ", ")))
 
   ;; prog-mode config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   (add-hook 'prog-mode-hook 'which-function-mode)
-  (add-hook 'prog-mode-hook 'hungry-delete-mode)
+  ;; (add-hook 'prog-mode-hook 'hungry-delete-mode)
   ;; format header line
   ;; (setq-default header-line-format
   ;;               '((which-func-mode ("" which-func-format " "))))
@@ -187,6 +190,7 @@
     '(require 'ox-md nil t))
 
   ;; global setting ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  (set-face-background 'hl-line "#2B2B2B")
   (delete-selection-mode 1)
   (setq which-key-side-window-max-height 0.8)
   (setq which-key-side-window-max-width 0.1)
