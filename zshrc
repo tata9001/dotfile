@@ -26,6 +26,12 @@ export CLICOLOR=1
 export LSCOLORS=Fxbxaxdxcxegedabagacad
 TERM=xterm-256color
 
+# python virtualenv
+eval "$(pyenv init -)"
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper_lazy.sh
+
 #######################################################################
 #                         Addtional Settings                          #
 #######################################################################
