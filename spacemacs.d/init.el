@@ -67,7 +67,7 @@
                                 (projects . 7))
    dotspacemacs-startup-buffer-responsive t
    dotspacemacs-scratch-mode 'text-mode
-   dotspacemacs-themes '(monokai spacemacs-dark dracula )
+   dotspacemacs-themes '( dracula spacemacs-dark monokai )
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Source Code Pro"
                                :size 15
@@ -112,7 +112,7 @@
    dotspacemacs-smartparens-strict-mode t
    dotspacemacs-smart-closing-parenthesis t
    dotspacemacs-highlight-delimiters 'all
-   dotspacemacs-persistent-server nil
+   dotspacemacs-persistent-server t
    dotspacemacs-search-tools '("ag" "grep" "pt" "ack")
    dotspacemacs-default-package-repository nil
    dotspacemacs-whitespace-cleanup 'trailing
@@ -190,7 +190,7 @@
     '(require 'ox-md nil t))
 
   ;; global setting ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  (set-face-background 'hl-line "#2B2B2B")
+  ;; (set-face-background 'hl-line "#2B2B2B")
   (delete-selection-mode 1)
   (setq which-key-side-window-max-height 0.8)
   (setq which-key-side-window-max-width 0.1)
