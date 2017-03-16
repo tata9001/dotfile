@@ -27,10 +27,10 @@ export LSCOLORS=Fxbxaxdxcxegedabagacad
 TERM=xterm-256color
 
 # python virtualenv
+export PYENV_ROOT="${HOME}/.pyenv"
 eval "$(pyenv init -)"
 export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
-source /usr/local/bin/virtualenvwrapper_lazy.sh
+source /usr/local/bin/virtualenvwrapper.sh
 
 #######################################################################
 #                         Addtional Settings                          #
