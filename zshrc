@@ -27,11 +27,12 @@ export LSCOLORS=Fxbxaxdxcxegedabagacad
 TERM=xterm-256color
 
 # python virtualenv
-export PYENV_ROOT="${HOME}/.pyenv"
-eval "$(pyenv init -)"
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-
+if [[ -d ~/.pyenv  ]]; then
+    export PYENV_ROOT="${HOME}/.pyenv"
+    eval "$(pyenv init -)"
+    export WORKON_HOME=$HOME/.virtualenvs
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
 #######################################################################
 #                         Addtional Settings                          #
 #######################################################################
@@ -39,7 +40,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 # enable ctrl-s
 stty -ixon
 
-# history 
+# history
 export HISTCONTROL=ignoredups:erasedups
 setopt EXTENDED_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
@@ -56,7 +57,7 @@ setopt HIST_BEEP
 
 alias vim="mvim -v"
 alias vi="mvim -v"
-alias p="proxychains4 -q"
+alias proxy="proxychains4 -q"
 alias e="emacs -nw"
 
 ## proxy
@@ -82,14 +83,14 @@ zplug "~/dotfile/zsh/colin", from:local, as:theme
 # Load plugins
 zplug "zplug/zplug", lazy:true
 zplug "~/dotfile/zsh/alias", from:local
-zplug "~/dotfile/zsh/software", from:local
+zplug "~/dotfile/zsh/tool", from:local
 zplug "plugins/osx", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin*  ]]"
 zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/autojump", from:oh-my-zsh 
-zplug "plugins/virtualenv", from:oh-my-zsh 
+zplug "plugins/autojump", from:oh-my-zsh
+zplug "plugins/virtualenv", from:oh-my-zsh
 zplug "plugins/docker", from:oh-my-zsh, hook-load:"source"
-zplug "plugins/docker-compose", from:oh-my-zsh 
-zplug "plugins/colored-man-pages", from:oh-my-zsh 
+zplug "plugins/docker-compose", from:oh-my-zsh
+zplug "plugins/colored-man-pages", from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
 
@@ -100,4 +101,4 @@ if ! zplug check; then
 fi
 
 # source plugins and add commands to the PATH
-zplug load 
+zplug load

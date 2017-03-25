@@ -67,7 +67,7 @@
                                 (projects . 7))
    dotspacemacs-startup-buffer-responsive t
    dotspacemacs-scratch-mode 'text-mode
-   dotspacemacs-themes '( dracula spacemacs-dark monokai )
+   dotspacemacs-themes '( spacemacs-dark dracula monokai )
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Source Code Pro"
                                :size 15
@@ -148,10 +148,15 @@
   (define-key evil-normal-state-map (kbd "L") (kbd "$"))
   (global-set-key (kbd "M-s e") 'iedit-mode)
 
+  ;; smartparece
+  (spacemacs/declare-prefix "jp" "smartparens")
+  (spacemacs/set-leader-keys
+    "jps" 'sp-splice-sexp
+    "jpr" 'sp-rewrap-sexp)
   ;; youdao Dict
   (global-set-key (kbd "C-c y") 'youdao-dictionary-search-at-point+)
 
-(spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
+  (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
   ;; (,) add Space
   ;; (global-set-key (kbd ",") #'(lambda () (interactive) (insert ", ")))
 
@@ -168,8 +173,8 @@
   ;; abbrev
   (setq-default abbrev-mode t)
   (define-abbrev-table 'global-abbrev-table '(
-                        ("8mail" "geek.colin@gmail.com")
-                        ("8name" "Colin.Lee")))
+                                              ("8mail" "geek.colin@gmail.com")
+                                              ("8name" "Colin.Lee")))
   ;; run shell command
   (defun shell-command-on-buffer ()
     (interactive)
@@ -192,6 +197,7 @@
   ;; global setting ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; (set-face-background 'hl-line "#2B2B2B")
   (delete-selection-mode 1)
+  (global-git-commit-mode t)
   (setq which-key-side-window-max-height 0.8)
   (setq which-key-side-window-max-width 0.1)
   ;; upload resource to qiniu
@@ -202,10 +208,10 @@
     (interactive)
     (qiniu-qshell "~/DataCenter/qiniu/conf.json")
     (message "upload OK"))
-  )
-(defun dotspacemacs/emacs-custom-settings ()
-  "Emacs custom settings.
+
+  (defun dotspacemacs/emacs-custom-settings ()
+    "Emacs custom settings.
 This is an auto-generated function, do not modify its content directly, use
 Emacs customize menu instead.
 This function is called at the very end of Spacemacs initialization."
-)
+    ))
