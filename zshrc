@@ -55,14 +55,14 @@ setopt HIST_BEEP
 #                           Alias Settings                            #
 #######################################################################
 
-alias vim="mvim -v"
-alias vi="mvim -v"
+# alias vim="mvim -v"
+# alias vi="mvim -v"
 alias proxy="proxychains4 -q"
 alias e="emacs -nw"
 
 ## proxy
-alias ss="export ALL_PROXY=socks5://127.0.0.1:1080"
-alias sp="export ALL_PROXY=http://127.0.0.1:8087"
+alias set_socks_proxy="export ALL_PROXY=socks5://127.0.0.1:1080"
+alias set_http_proxy="export ALL_PROXY=http://127.0.0.1:8087"
 alias unset_proxy="unset ALL_PROXY"
 
 ## quick file

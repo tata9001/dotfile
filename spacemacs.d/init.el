@@ -198,6 +198,7 @@
   ;; (set-face-background 'hl-line "#2B2B2B")
   (delete-selection-mode 1)
   (global-git-commit-mode t)
+  (setq create-lockfiles nil)
   (setq which-key-side-window-max-height 0.8)
   (setq which-key-side-window-max-width 0.1)
   ;; upload resource to qiniu

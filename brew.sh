@@ -6,6 +6,7 @@
 brew tap caskroom/cask
 brew tap railwaycat/emacsmacport
 brew tap universal-ctags/universal-ctags
+#brew tap neovim/neovim
 
 # Make sure we’re using the latest Homebrew.
 brew update
@@ -19,7 +20,8 @@ brew install proxychains-ng the_silver_searcher
 brew install tree ccat autojump
 brew install htop iftop
 brew install emacs-mac --HEAD --with-official-icon --with-ctags  --with-gnutls
-brew install macvim  --with-lua
+brew install vim --with-lua  ---with-override-system-vi --HEAD
+#brew install neovim  --HEAD
 brew install universal-ctags --HEAD
 
 
