@@ -21,6 +21,7 @@ alias drmi="docker rmi"
 alias drmif="docker rmi -f"
 alias drm="docker rm"
 alias drmf="docker rm -f"
+alias dcone="docker run -it --rm"
 
 alias dcb='docker-compose build'
 alias dce='docker-compose exec'
