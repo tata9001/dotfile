@@ -10,12 +10,14 @@ let g:spacevim_default_indent = 4
 let g:spacevim_max_column     = 80
 let g:spacevim_colorscheme    = 'molokai'
 
+let g:spacevim_buffer_index_type = 3
+
 " Change the default directory where all miscellaneous persistent files go.
 " By default it is ~/.cache/vimfiles/.
 let g:spacevim_plugin_bundle_dir = '~/.cache/vimfiles/'
 
 " set SpaceVim colorscheme
-let g:spacevim_colorscheme = 'molokai'
+let g:spacevim_colorscheme = 'spacemacs-theme'
 
 " Set plugin manager, you want to use, default is dein.vim
 let g:spacevim_plugin_manager = 'dein'  " neobundle or dein or vim-plug
@@ -53,6 +55,7 @@ let g:spacevim_custom_plugins = [
     \ ['plasticboy/vim-markdown', {'on_ft' : 'markdown'}],
     \ ['szw/vim-smartclose'],
     \ ['thinca/vim-quickrun'],
+    \ ['colepeters/spacemacs-theme.vim'],
     \ ]
 
 " set the guifont
