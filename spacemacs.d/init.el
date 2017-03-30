@@ -13,7 +13,7 @@
      yaml
      ivy
      better-defaults
-     python
+     python django
      (go :variables go-tab-width 4)
      html
      emacs-lisp
@@ -112,7 +112,7 @@
    dotspacemacs-smartparens-strict-mode t
    dotspacemacs-smart-closing-parenthesis t
    dotspacemacs-highlight-delimiters 'all
-   dotspacemacs-persistent-server t
+   dotspacemacs-persistent-server nil
    dotspacemacs-search-tools '("ag" "grep" "pt" "ack")
    dotspacemacs-default-package-repository nil
    dotspacemacs-whitespace-cleanup 'trailing
