@@ -18,13 +18,11 @@
      html
      emacs-lisp
      git
-     docker
      markdown
      ranger
      shell-scripts
      vimscript
      search-engine
-     docker
      osx
      imenu-list
      (chinese :variables chinese-enable-youdao-dict t)
@@ -157,6 +155,12 @@
   (global-set-key (kbd "C-c y") 'youdao-dictionary-search-at-point+)
 
   (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
+  ;; company
+  (with-eval-after-load 'company
+    (define-key company-active-map (kbd "M-n") nil)
+    (define-key company-active-map (kbd "M-p") nil)
+    (define-key company-active-map (kbd "C-n") #'company-select-next)
+    (define-key company-active-map (kbd "C-p") #'company-select-previous))
   ;; (,) add Space
   ;; (global-set-key (kbd ",") #'(lambda () (interactive) (insert ", ")))
 
@@ -183,7 +187,20 @@
      (read-shell-command "Run shell command on buffer: ")))
 
   (spacemacs/set-leader-keys "or" 'shell-command-on-buffer)
-
+  ;; occur-mode
+  (defun occur-dwim ()
+    "Call `occur' with a sane default."
+    (interactive)
+    (push (if (region-active-p)
+              (buffer-substring-no-properties
+               (region-beginning)
+               (region-end))
+            (let ((sym (thing-at-point 'symbol)))
+              (when (stringp sym)
+                (regexp-quote sym))))
+          regexp-history)
+    (call-interactively 'occur))
+  (global-set-key (kbd "M-s o") 'occur-dwim)
   ;; org-mode config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; org-mode auto new line
   (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
