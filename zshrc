@@ -27,12 +27,12 @@ export LSCOLORS=Fxbxaxdxcxegedabagacad
 TERM=xterm-256color
 
 # python virtualenv
-if [[ -d ~/.pyenv  ]]; then
-    export PYENV_ROOT="${HOME}/.pyenv"
-    eval "$(pyenv init -)"
-    export WORKON_HOME=$HOME/.virtualenvs
-    source /usr/local/bin/virtualenvwrapper.sh
-fi
+#if [[ -d ~/.pyenv  ]]; then
+    #export PYENV_ROOT="${HOME}/.pyenv"
+    #eval "$(pyenv init -)"
+    #export WORKON_HOME=$HOME/.virtualenvs
+    #source /usr/local/bin/virtualenvwrapper.sh
+#fi
 #######################################################################
 #                         Addtional Settings                          #
 #######################################################################
@@ -81,24 +81,19 @@ source ~/.zplug/init.zsh || curl -sL zplug.sh/installer | zsh
 zplug "~/dotfile/zsh/colin", from:local, as:theme
 
 # Load plugins
-zplug "zplug/zplug", lazy:true
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug "~/dotfile/zsh/alias", from:local
 zplug "~/dotfile/zsh/tool", from:local
 zplug "plugins/osx", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin*  ]]"
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/autojump", from:oh-my-zsh
-zplug "plugins/virtualenv", from:oh-my-zsh
 zplug "plugins/docker", from:oh-my-zsh, hook-load:"source"
 zplug "plugins/docker-compose", from:oh-my-zsh
-zplug "plugins/colored-man-pages", from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
+zplug "jhawthorn/fzy", \
+    as:command, \
+    rename-to:fzy, \
+    hook-build:"make && sudo make install"
 
-# zplug check returns true if all packages are installed
-# # Therefore, when it returns false, run zplug install
-if ! zplug check; then
-    zplug install
-fi
-
-# source plugins and add commands to the PATH
 zplug load

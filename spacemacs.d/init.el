@@ -14,7 +14,7 @@
      ivy
      better-defaults
      python django
-     (go :variables go-tab-width 4)
+     ;; (go :variables go-tab-width 4)
      html
      emacs-lisp
      git
@@ -29,9 +29,9 @@
      (chinese :variables chinese-enable-youdao-dict t)
      (org :variables org-enable-reveal-js-support t)
      (shell :variables
-            shell-default-shell 'term
+            shell-default-shell 'eshell
             shell-default-height 60
-            shell-default-term-shell "zsh")
+            shell-default-term-shell "bash")
      (syntax-checking :variables
                       syntax-checking-enable-by-default nil
                       syntax-checking-enable-tooltips t
@@ -58,7 +58,7 @@
    dotspacemacs-check-for-update nil
    dotspacemacs-elpa-subdirectory nil
    dotspacemacs-editing-style 'vim
-   dotspacemacs-verbose-loading nil
+   dotspacemacs-verbose-loading t
    dotspacemacs-startup-banner 'official
    ;; Possible values for list-type are:
    ;; `recents' `bookmarks' `projects' `agenda' `todos'."
@@ -108,7 +108,7 @@
    dotspacemacs-smooth-scrolling t
    dotspacemacs-line-numbers 'relative
    dotspacemacs-folding-method 'evil
-   dotspacemacs-smartparens-strict-mode t
+   dotspacemacs-smartparens-strict-mode nil
    dotspacemacs-smart-closing-parenthesis t
    dotspacemacs-highlight-delimiters 'all
    dotspacemacs-persistent-server nil
@@ -127,7 +127,10 @@
 
   (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
   (load custom-file 'no-error 'no-message)
+
   (setq exec-path-from-shell-check-startup-files nil)
+  ;(setq exec-path-from-shell-variables '("PATH" "WORKON_HOME" "PYENV_ROOT"))
+  ;(setq exec-path-from-shell-arguments '("-l" ))
 
   )
 
@@ -214,9 +217,13 @@
 
   ;; global setting ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; (set-face-background 'hl-line "#2B2B2B")
+
+
   (delete-selection-mode 1)
   (global-git-commit-mode t)
   (global-auto-revert-mode t)
+  (smartparens-global-mode)
+  (setq-default fill-column 80)
   (setq create-lockfiles nil)
   (setq which-key-side-window-max-height 0.8)
   (setq which-key-side-window-max-width 0.1)
