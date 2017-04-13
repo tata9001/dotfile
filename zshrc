@@ -24,7 +24,10 @@ export LANG=en_US.UTF-8
 export EDITOR='vim'
 export CLICOLOR=1
 export LSCOLORS=Fxbxaxdxcxegedabagacad
-TERM=xterm-256color
+
+if [ "$TERM" = "xterm" ]; then
+  export TERM=xterm-256color
+fi
 
 # python virtualenv
 #if [[ -d ~/.pyenv  ]]; then
