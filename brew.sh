@@ -15,7 +15,7 @@ brew update
 brew upgrade
 
 # Install more recent versions of some macOS tools.
-brew install tmux python
+brew install tmux python reattach-to-user-namespace
 brew install proxychains-ng the_silver_searcher
 brew install tree ccat autojump
 brew install htop iftop
