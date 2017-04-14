@@ -8,7 +8,6 @@ let g:spacevim_buffer_index_type = 1
 " here are some basic customizations, please refer to the top of the vimrc file for all possible options
 let g:spacevim_default_indent = 4
 let g:spacevim_max_column     = 80
-let g:spacevim_colorscheme    = 'molokai'
 
 let g:spacevim_buffer_index_type = 3
 
@@ -46,9 +45,9 @@ let g:spacevim_unite_leader = 'f'
 
 " If there is a particular plugin you don't like, you can define this
 " variable to disable them entirely:
-let g:spacevim_disabled_plugins=[
-    \ ['junegunn/fzf.vim'],
-    \ ]
+"let g:spacevim_disabled_plugins=[
+    "\ ['junegunn/fzf.vim'],
+    "\ ]
 
 " If you want to add some custom plugins, use these options:
 let g:spacevim_custom_plugins = [
