@@ -30,12 +30,12 @@ if [ "$TERM" = "xterm" ]; then
 fi
 
 # python virtualenv
-#if [[ -d ~/.pyenv  ]]; then
-    #export PYENV_ROOT="${HOME}/.pyenv"
-    #eval "$(pyenv init -)"
-    #export WORKON_HOME=$HOME/.virtualenvs
-    #source /usr/local/bin/virtualenvwrapper.sh
-#fi
+if [[ -d ~/.pyenv  ]]; then
+    export PYENV_ROOT="${HOME}/.pyenv"
+    eval "$(pyenv init -)"
+    export WORKON_HOME=$HOME/.virtualenvs
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
 #######################################################################
 #                         Addtional Settings                          #
 #######################################################################

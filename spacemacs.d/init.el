@@ -14,7 +14,7 @@
      ivy
      better-defaults
      python django
-     ;; (go :variables go-tab-width 4)
+     (go :variables go-tab-width 4)
      html
      emacs-lisp
      git
@@ -129,8 +129,6 @@
   (load custom-file 'no-error 'no-message)
 
   (setq exec-path-from-shell-check-startup-files nil)
-  ;(setq exec-path-from-shell-variables '("PATH" "WORKON_HOME" "PYENV_ROOT"))
-  ;(setq exec-path-from-shell-arguments '("-l" ))
 
   )
 
