@@ -30,8 +30,9 @@
      (org :variables org-enable-reveal-js-support t)
      (shell :variables
             shell-default-shell 'eshell
-            shell-default-height 60
-            shell-default-term-shell "bash")
+            ;; shell-default-term-shell "zsh"
+            shell-enable-smart-eshell t
+            shell-default-height 60)
      (syntax-checking :variables
                       syntax-checking-enable-by-default nil
                       syntax-checking-enable-tooltips t
