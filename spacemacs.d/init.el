@@ -14,7 +14,7 @@
      ivy
      better-defaults
      python django
-     (go :variables go-tab-width 4)
+     ;; (go :variables go-tab-width 4)
      html
      emacs-lisp
      git

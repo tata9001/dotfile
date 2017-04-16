@@ -1,25 +1,14 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/colin/.oh-my-zsh
-
-# ZSH_THEME="colin"
-
-DISABLE_AUTO_UPDATE="true"
-COMPLETION_WAITING_DOTS="true"
-HIST_STAMPS="yyyy-mm-dd"
-
-# export UPDATE_ZSH_DAYS=7
-# DISABLE_LS_COLORS="true"
-# DISABLE_AUTO_TITLE="true"
-# ZSH_CUSTOM=$ZSH/custom
-# ENABLE_CORRECTION="true"
-
-# plugins=(git virtualenv docker autojump colored-man-pages)
+#
+#  prezto
+#
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
 #######################################################################
 #                            User Settings                            #
 #######################################################################
 
-source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 export EDITOR='vim'
 export CLICOLOR=1
@@ -29,30 +18,28 @@ if [ "$TERM" = "xterm" ]; then
   export TERM=xterm-256color
 fi
 
-# python virtualenv
-if [[ -d ~/.pyenv  ]]; then
-    export PYENV_ROOT="${HOME}/.pyenv"
-    eval "$(pyenv init -)"
-    export WORKON_HOME=$HOME/.virtualenvs
-    source /usr/local/bin/virtualenvwrapper.sh
-fi
+###############################################################################
+#                                  Lazy Load                                  #
+###############################################################################
+
+#
+# python
+#
+pyenv() {
+    eval "$( command pyenv init - )"
+    pyenv "$@"
+}
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/.projects
+export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper_lazy.sh
+
 #######################################################################
 #                         Addtional Settings                          #
 #######################################################################
 
 # enable ctrl-s
 stty -ixon
-
-# history
-export HISTCONTROL=ignoredups:erasedups
-setopt EXTENDED_HISTORY
-setopt HIST_EXPIRE_DUPS_FIRST
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-setopt HIST_FIND_NO_DUPS
-setopt HIST_SAVE_NO_DUPS
-setopt HIST_BEEP
 
 #######################################################################
 #                           Alias Settings                            #
@@ -80,23 +67,29 @@ alias -s bz2='tar -xjvf'
 
 source ~/.zplug/init.zsh || curl -sL zplug.sh/installer | zsh
 
+ZPLUG_LOADFILE=$ZPLUG_HOME/packages.zsh
+ZPLUG_CACHE_DIR=~/.cache/zplug
+
 # Load themes file
-zplug "~/dotfile/zsh/colin", from:local, as:theme
+# zplug "~/dotfile/zsh/plugin/colin", from:local, as:theme
 
 # Load plugins
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-zplug "~/dotfile/zsh/alias", from:local
-zplug "~/dotfile/zsh/tool", from:local
-zplug "plugins/osx", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin*  ]]"
-zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/autojump", from:oh-my-zsh
-zplug "plugins/docker", from:oh-my-zsh, hook-load:"source"
-zplug "plugins/docker-compose", from:oh-my-zsh
+zplug "~/dotfile/zsh/plugin/tool", from:local
+zplug "modules/environment", from:prezto
+zplug "modules/prompt", from:prezto
+zplug "modules/editor", from:prezto
+zplug "modules/history", from:prezto
+zplug "modules/directory", from:prezto
+zplug "modules/spectrum", from:prezto
+zplug "modules/utility", from:prezto
+zplug "modules/completion", from:prezto
+zplug "modules/git", from:prezto
+zplug "modules/docker", from:prezto
+zplug "modules/osx", from:prezto
+zplug "modules/syntax-highlighting", from:prezto
+zplug "plugins/autojump", from:oh-my-zsh, lazy:true, defer:2
+zplug "supercrabtree/k"
 zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "jhawthorn/fzy", \
-    as:command, \
-    rename-to:fzy, \
-    hook-build:"make && sudo make install"
 
 zplug load
