@@ -1,14 +1,43 @@
-#
-#  prezto
-#
+###############################################################################
+#                               Packages Manger                               #
+###############################################################################
+# prezto
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
     source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-#######################################################################
-#                            User Settings                            #
-#######################################################################
+source ~/.zplug/init.zsh || curl -sL zplug.sh/installer | zsh
 
+ZPLUG_LOADFILE=$ZPLUG_HOME/packages.zsh
+ZPLUG_CACHE_DIR=~/.cache/zplug
+
+# Load themes file
+#zplug "~/dotfile/zsh/plugin/colin", from:local, as:theme
+
+# Load plugins
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "~/dotfile/zsh/plugin/tool", from:local
+zplug "modules/environment", from:prezto
+zplug "modules/prompt", from:prezto
+zplug "modules/editor", from:prezto
+zplug "modules/history", from:prezto
+zplug "modules/directory", from:prezto
+zplug "modules/spectrum", from:prezto
+zplug "modules/utility", from:prezto
+zplug "modules/completion", from:prezto
+zplug "modules/git", from:prezto
+zplug "modules/docker", from:prezto
+zplug "modules/osx", from:prezto
+zplug "modules/syntax-highlighting", from:prezto
+zplug "modules/autosuggestions", from:prezto
+zplug "plugins/autojump", from:oh-my-zsh
+zplug "supercrabtree/k"
+
+zplug load
+
+###############################################################################
+#                                User Settings                                #
+###############################################################################
 export LANG=en_US.UTF-8
 export EDITOR='vim'
 export CLICOLOR=1
@@ -34,16 +63,23 @@ export PROJECT_HOME=$HOME/.projects
 export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
 source /usr/local/bin/virtualenvwrapper_lazy.sh
 
-#######################################################################
-#                         Addtional Settings                          #
-#######################################################################
+###############################################################################
+#                              Addtional Settings                             #
+###############################################################################
 
 # enable ctrl-s
 stty -ixon
 
-#######################################################################
-#                           Alias Settings                            #
-#######################################################################
+###############################################################################
+#                                  Keybinding                                 #
+###############################################################################
+bindkey '' vi-forward-word
+bindkey '' vi-end-of-line
+
+
+###############################################################################
+#                                Alias Settings                               #
+###############################################################################
 
 # alias vim="mvim -v"
 # alias vi="mvim -v"
@@ -60,36 +96,3 @@ alias -s gz='tar -xzvf'
 alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
-
-#######################################################################
-#                      oh-my-zsh Packages Manger                      #
-#######################################################################
-
-source ~/.zplug/init.zsh || curl -sL zplug.sh/installer | zsh
-
-ZPLUG_LOADFILE=$ZPLUG_HOME/packages.zsh
-ZPLUG_CACHE_DIR=~/.cache/zplug
-
-# Load themes file
-# zplug "~/dotfile/zsh/plugin/colin", from:local, as:theme
-
-# Load plugins
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-zplug "~/dotfile/zsh/plugin/tool", from:local
-zplug "modules/environment", from:prezto
-zplug "modules/prompt", from:prezto
-zplug "modules/editor", from:prezto
-zplug "modules/history", from:prezto
-zplug "modules/directory", from:prezto
-zplug "modules/spectrum", from:prezto
-zplug "modules/utility", from:prezto
-zplug "modules/completion", from:prezto
-zplug "modules/git", from:prezto
-zplug "modules/docker", from:prezto
-zplug "modules/osx", from:prezto
-zplug "modules/syntax-highlighting", from:prezto
-zplug "plugins/autojump", from:oh-my-zsh, lazy:true, defer:2
-zplug "supercrabtree/k"
-zplug "zsh-users/zsh-autosuggestions"
-
-zplug load

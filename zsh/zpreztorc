@@ -27,9 +27,10 @@ zstyle ':prezto:*:*' color 'yes'
 #
 # Autosuggestions
 #
-
+# Set color
+zstyle ':prezto:module:autosuggestions' color 'yes'
 # Set the query found color.
-zstyle ':prezto:module:autosuggestions:color' found ''
+zstyle ':prezto:module:autosuggestions:color' found 'fg=8'
 
 #
 # Editor
@@ -54,5 +55,13 @@ zstyle ':prezto:module:git:status:ignore' submodules 'all'
 #
 # Theme
 #
-
 zstyle ':prezto:module:prompt' theme 'sorin'
+
+#
+# Highlighters
+zstyle ':prezto:module:syntax-highlighting' highlighters \
+       'main' \
+       'brackets' \
+       'pattern' \
+       'cursor' \
+       'root'
