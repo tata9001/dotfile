@@ -101,7 +101,7 @@
    dotspacemacs-fullscreen-at-startup nil
    dotspacemacs-fullscreen-use-non-native nil
    dotspacemacs-maximized-at-startup t
-   dotspacemacs-active-transparency 90
+   dotspacemacs-active-transparency 80
    dotspacemacs-inactive-transparency 90
    dotspacemacs-show-transient-state-title t
    dotspacemacs-show-transient-state-color-guide t
@@ -148,6 +148,7 @@
   (define-key evil-normal-state-map (kbd "H") (kbd "^"))
   (define-key evil-normal-state-map (kbd "L") (kbd "$"))
   (global-set-key (kbd "M-s e") 'iedit-mode)
+  (spacemacs/set-leader-keys "tt" 'spacemacs/toggle-transparency)
 
   ;; smartparece
   (spacemacs/declare-prefix "jp" "smartparens")
