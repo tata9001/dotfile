@@ -130,6 +130,8 @@
   (load custom-file 'no-error 'no-message)
 
   (setq exec-path-from-shell-check-startup-files nil)
+  (setq exec-path-from-shell-arguments '("-l" ))
+  (setq exec-path-from-shell-variables '("PATH" "MANPATH" "GOROOT" "GOPATH" "EDITOR" "PYTHONPATH"))
 
   )
 
