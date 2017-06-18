@@ -1,0 +1,6 @@
+# docker machine
+export MACHINE_DRIVER=virtualbox
+export VIRTUALBOX_CPU_COUNT=-1
+export ENGINE_REGISTRY_MIRROR=http://86fc631f.m.daocloud.io
+export VIRTUALBOX_BOOT2DOCKER_URL=~/resources/iso/boot2docker.iso
+alias dkmd='eval $(docker-machine env default)'

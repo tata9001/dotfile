@@ -6,7 +6,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
     source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-source ~/.zplug/init.zsh || curl -sL zplug.sh/installer | zsh
+source ~/.zplug/init.zsh
 
 ZPLUG_LOADFILE=$ZPLUG_HOME/packages.zsh
 ZPLUG_CACHE_DIR=~/.cache/zplug
@@ -54,12 +54,16 @@ fi
 #
 # python
 #
-pyenv() {
-    eval "$( command pyenv init - )"
-    pyenv "$@"
-}
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+#pyenv() {
+#    eval "$( command pyenv init - )"
+#    pyenv "$@"
+#}
 export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/.projects
+# export PROJECT_HOME=$HOME/.projects
 export VIRTUALENVWRAPPER_SCRIPT=`which virtualenvwrapper.sh`
 source virtualenvwrapper_lazy.sh
 
@@ -75,7 +79,7 @@ stty -ixon
 ###############################################################################
 bindkey '' vi-forward-word
 bindkey '' vi-end-of-line
-bindkey '^R' percol_select_history
+#bindkey '^R' percol_select_history
 
 
 ###############################################################################

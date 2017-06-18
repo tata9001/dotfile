@@ -1,54 +1,12 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                               Official Default                              "
+"                           Load Plugins and Layers                           "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:spacevim_simple_mode = 1
-let g:spacevim_buffer_index_type = 1
-" let g:spacevim_realtime_leader_guide = 1
-
-" here are some basic customizations, please refer to the top of the vimrc file for all possible options
-let g:spacevim_default_indent = 4
-let g:spacevim_max_column     = 80
-
-let g:spacevim_buffer_index_type = 3
-
-" Change the default directory where all miscellaneous persistent files go.
-" By default it is ~/.cache/vimfiles/.
-let g:spacevim_plugin_bundle_dir = '~/.cache/vimfiles/'
-
-" set SpaceVim colorscheme
-let g:spacevim_colorscheme = 'spacemacs-theme'
-
-" Set plugin manager, you want to use, default is dein.vim
-let g:spacevim_plugin_manager = 'dein'  " neobundle or dein or vim-plug
-
-" use space as `<Leader>`
-
-let mapleader = "\<space>"
-
-" Set windows shortcut leader [Window], default is `s`
-let g:spacevim_windows_leader = 's'
-
-" Set unite work flow shortcut leader [Unite], default is `f`
-let g:spacevim_unite_leader = 'f'
-
-" By default, language specific plugins are not loaded. This can be changed
-" with the following, then the plugins for go development will be loaded.
-
-" load layers
-" call SpaceVim#layers#load('core#banner')
-" call SpaceVim#layers#load('core#statusline')
-" call SpaceVim#layers#load('core#tabline')
-" call SpaceVim#layers#load('unit')
-" call SpaceVim#layers#load('lang#python')
-" call SpaceVim#layers#load('ui')
-" call SpaceVim#layers#load('default')
-
-" If there is a particular plugin you don't like, you can define this
-" variable to disable them entirely:
-"let g:spacevim_disabled_plugins=[
-    "\ ['junegunn/fzf.vim'],
-    "\ ]
-
+"let g:spacevim_simple_mode = 1
+call SpaceVim#layers#load('lang#go')
+call SpaceVim#layers#load('lang#javascript')
+call SpaceVim#layers#load('lang#vim')
+call SpaceVim#layers#load('lang#python')
+call SpaceVim#layers#load('shell')
 " If you want to add some custom plugins, use these options:
 let g:spacevim_custom_plugins = [
     \ ['plasticboy/vim-markdown', {'on_ft' : 'markdown'}],
@@ -57,9 +15,39 @@ let g:spacevim_custom_plugins = [
     \ ['colepeters/spacemacs-theme.vim'],
     \ ]
 
-" set the guifont
-let g:spacevim_guifont = 'DejaVu\ Sans\ Mono\ for\ Powerline\ 11'
+"let g:spacevim_disabled_plugins=[
+"\ ['junegunn/fzf.vim'],
+"\ ]
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                Custom                                       "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set foldmethod=indent
+set visualbell
+set mouse=
+
+let g:spacevim_enable_debug = 0
+let g:spacevim_realtime_leader_guide = 1
+let g:spacevim_enable_vimfiler_welcome = 1
+let g:deoplete#auto_complete_delay = 150
+let g:spacevim_enable_tabline_filetype_icon = 1
+let g:spacevim_enable_os_fileformat_icon = 1
+let g:spacevim_buffer_index_type = 1
+let g:neomake_vim_enabled_makers = ['vimlint', 'vint']
+if has('python3')
+    let g:ctrlp_map = ''
+    nnoremap <silent> <C-p> :Denite file_rec<CR>
+endif
+
+let g:spacevim_default_indent = 4
+let g:spacevim_max_column     = 80
+let g:spacevim_colorscheme = 'spacemacs-theme'
+
+"let mapleader = "<space>"
+let g:spacevim_windows_leader = 's'
+let g:spacevim_unite_leader = 'f'
+
+let g:spacevim_guifont = 'DejaVu\ Sans\ Mono\ for\ Powerline\ 11'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              Custom Keybindings                              "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -95,23 +83,11 @@ nnoremap <silent><Leader>bh :Startify<CR>
 " vim-better-whitespace
 nnoremap <Leader>xd :StripWhitespace<CR>
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                Custom                                       "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set foldmethod=indent
-set visualbell
-set mouse=
-
+" call SpaceVim#custom#SPC('nnoremap', ['t', 'f'], 'echom "hello world"', 'test custom SPC', 1)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Custom Plugins                               "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" easy-motion
-map <Leader> <Plug>(easymotion-prefix)
-map  <Leader>jj <Plug>(easymotion-bd-f)
-map <Leader>jJ <Plug>(easymotion-overwin-f2)
-
 "" nerdcommenter
 map <Leader>;; <Plug>NERDCommenterToggle
 

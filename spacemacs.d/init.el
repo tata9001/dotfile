@@ -14,7 +14,7 @@
      ivy
      better-defaults
      python django
-     ;; (go :variables go-tab-width 4)
+     (go :variables go-tab-width 4)
      html
      emacs-lisp
      git
@@ -69,7 +69,7 @@
    dotspacemacs-scratch-mode 'text-mode
    dotspacemacs-themes '( spacemacs-dark dracula monokai )
    dotspacemacs-colorize-cursor-according-to-state t
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("Source Code Pro for Powerline"
                                :size 15
                                :weight normal
                                :width normal

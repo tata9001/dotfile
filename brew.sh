@@ -24,6 +24,5 @@ brew install vim --with-lua  ---with-override-system-vi --HEAD
 #brew install neovim  --HEAD
 brew install universal-ctags --HEAD
 
-
 # Remove outdated versions from the cellar.
 brew cleanup
