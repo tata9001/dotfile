@@ -12,7 +12,7 @@ ZPLUG_LOADFILE=$ZPLUG_HOME/packages.zsh
 ZPLUG_CACHE_DIR=~/.cache/zplug
 
 # Load themes file
-#zplug "~/dotfile/zsh/plugin/colin", from:local, as:theme
+# zplug "~/dotfile/zsh/plugin/colin", from:local, as:theme
 
 # Load plugins
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
@@ -27,9 +27,11 @@ zplug "modules/utility", from:prezto
 zplug "modules/completion", from:prezto
 zplug "modules/git", from:prezto
 zplug "modules/docker", from:prezto
+zplug "modules/python", from:prezto
 zplug "modules/osx", from:prezto
 zplug "modules/syntax-highlighting", from:prezto
 zplug "modules/autosuggestions", from:prezto
+zplug "modules/homebrew", from:prezto
 zplug "plugins/autojump", from:oh-my-zsh
 zplug "supercrabtree/k"
 
@@ -48,22 +50,11 @@ if [ "$TERM" = "xterm" ]; then
 fi
 
 ###############################################################################
-#                                  Lazy Load                                  #
+#                                   Environments                              #
 ###############################################################################
 
-#
-# python
-#
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-#pyenv() {
-#    eval "$( command pyenv init - )"
-#    pyenv "$@"
-#}
-export WORKON_HOME=$HOME/.virtualenvs
-# export PROJECT_HOME=$HOME/.projects
+## python
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--system-site-packages'
 export VIRTUALENVWRAPPER_SCRIPT=`which virtualenvwrapper.sh`
 source virtualenvwrapper_lazy.sh
 
@@ -86,8 +77,8 @@ bindkey '' vi-end-of-line
 #                                Alias Settings                               #
 ###############################################################################
 
-# alias vim="mvim -v"
-# alias vi="mvim -v"
+alias vim="nvim"
+alias vi="nvim"
 alias proxy="proxychains4 -q"
 alias e="emacs -nw"
 

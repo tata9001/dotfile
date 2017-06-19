@@ -59,9 +59,15 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 
 #
 # Highlighters
+#
 zstyle ':prezto:module:syntax-highlighting' highlighters \
        'main' \
        'brackets' \
        'pattern' \
        'cursor' \
        'root'
+
+#
+# Languages
+#
+zstyle ':prezto:module:python:virtualenv' auto-switch 'yes'

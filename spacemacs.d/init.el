@@ -85,7 +85,7 @@
    dotspacemacs-visual-line-move-text t
    dotspacemacs-ex-substitute-global nil
    dotspacemacs-default-layout-name "Default"
-   dotspacemacs-display-default-layout nil
+   dotspacemacs-display-default-layout t
    dotspacemacs-auto-resume-layouts nil
    dotspacemacs-large-file-size 1
    dotspacemacs-auto-save-file-location 'cache
