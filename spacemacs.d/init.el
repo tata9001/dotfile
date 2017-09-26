@@ -24,7 +24,7 @@
      shell-scripts
      vimscript
      search-engine
-     osx
+     (osx :variables osx-command-as 'super)
      imenu-list
      (chinese :variables chinese-enable-youdao-dict t)
      (org :variables org-enable-reveal-js-support t)
@@ -46,9 +46,9 @@
      (colors :variables colors-enable-nyan-cat-progress-bar t)
      (ibuffer :variables ibuffer-group-buffers-by 'projects))
 
-   dotspacemacs-additional-packages'()
+   dotspacemacs-additional-packages'(all-the-icons)
    dotspacemacs-frozen-packages '()
-   dotspacemacs-excluded-packages '(ido, tern, vi-tilde-fringe)
+   dotspacemacs-excluded-packages '(ido, tern, vi-tilde-fringe, define-word)
 
    dotspacemacs-install-packages 'used-only))
 
@@ -151,6 +151,7 @@
   (define-key evil-normal-state-map (kbd "L") (kbd "$"))
   (global-set-key (kbd "M-s e") 'iedit-mode)
   (spacemacs/set-leader-keys "tt" 'spacemacs/toggle-transparency)
+  ;; (setq mac-command-modifier 'super)
 
   ;; smartparece
   (spacemacs/declare-prefix "jp" "smartparens")
@@ -172,7 +173,7 @@
 
   ;; prog-mode config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   (add-hook 'prog-mode-hook 'which-function-mode)
-  ;; (add-hook 'prog-mode-hook 'hungry-delete-mode)
+  (add-hook 'prog-mode-hook 'hungry-delete-mode)
   ;; format header line
   ;; (setq-default header-line-format
   ;;               '((which-func-mode ("" which-func-format " "))))
@@ -184,7 +185,8 @@
   (setq-default abbrev-mode t)
   (define-abbrev-table 'global-abbrev-table '(
                                               ("8mail" "geek.colin@gmail.com")
-                                              ("8name" "Colin.Lee")))
+                                              ("8name" "Colin.Lee")
+                                              ("8user" "Colin.Lee <geek.colin@gmail.com>")))
   ;; run shell command
   (defun shell-command-on-buffer ()
     (interactive)
@@ -219,7 +221,7 @@
 
   ;; global setting ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; (set-face-background 'hl-line "#2B2B2B")
-
+  (setq delete-by-moving-to-trash 'nil)
 
   (delete-selection-mode 1)
   (global-git-commit-mode t)
@@ -229,15 +231,12 @@
   (setq create-lockfiles nil)
   (setq which-key-side-window-max-height 0.8)
   (setq which-key-side-window-max-width 0.1)
-  ;; upload resource to qiniu
-  (defun qiniu-qshell (command)
-    (let ((command-str (format "qshell qupload 10 %s" command)))
-      (shell-command-to-string command-str)))
-  (defun qiniu-upload ()
-    (interactive)
-    (qiniu-qshell "~/DataCenter/qiniu/conf.json")
-    (message "upload OK"))
-
+  (setq-default tab-width 4)
+  ;; (setq mac-command-modifier 'super) ; make cmd key do Meta
+  ;; (setq mac-option-modifier 'meta) ; make opt key do Super
+  ;; neotree ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+  (setq-default neo-smart-open t)
   (defun dotspacemacs/emacs-custom-settings ()
     "Emacs custom settings.
 This is an auto-generated function, do not modify its content directly, use
