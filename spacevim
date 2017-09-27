@@ -1,0 +1,76 @@
+" Put layers you want to enable as well as extra private plugins
+function! UserInit()
+
+    let g:spacevim_leader = "<\Space>"
+    let g:spacevim_localleader = ','
+
+    " Put the layers you want to enable
+    Layer 'airline'
+    Layer 'programming'
+    Layer 'chinese'
+    Layer 'text-align'
+    Layer 'git'
+    Layer 'auto-completion'
+    " Layer 'python'
+
+    " Put private plugins
+    Plug 'yggdroot/indentline'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'davidhalter/jedi-vim'
+    Plug 'ekalinin/dockerfile.vim'
+    Plug 'ervandew/supertab'
+    Plug 'rking/ag.vim'
+
+    " Exclude plugins
+    Exclude 'Raimondi/delimitMate'
+    Exclude 'vim-scripts/errormarker.vim'
+
+endfunction
+
+" Customize configuration
+function! UserConfig()
+
+    color space-vim-dark
+    let g:airline_powerline_fonts=1
+    let g:ctrlp_match_window_bottom = 1
+    let g:ctrlp_max_height = 20
+    let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
+    let g:UltiSnipsExpandTrigger = '<tab>'
+
+    "  jedi-vim plugin {
+       let g:jedi#completions_enabled = 1
+       let g:jedi#auto_initialization = 1
+       let g:jedi#auto_vim_configuration = 1
+       let g:jedi#use_tabs_not_buffers = 1
+       let g:jedi#use_splits_not_buffers = "left"
+
+       " default Keybinding
+       let g:jedi#goto_assignments_command = "<leader>ga"
+       let g:jedi#goto_definitions_command = "<leader>gf"
+       let g:jedi#documentation_command = "<Leander>gd"
+       let g:jedi#usages_command = "<leader>gu"
+       let g:jedi#completions_command = "<C-Space>"
+
+		" disable for python
+	   if !exists('g:neocomplete#sources#omni#input_patterns')
+		   let g:neocomplete#sources#omni#input_patterns = {}
+	   endif
+	   let g:neocomplete#sources#omni#input_patterns.python = ''
+    " }
+
+    """ customize config
+    "" .bashrc or .zshrc add "stty -ixon"
+    nnoremap <C-s> :w<CR>
+    inoremap <C-s> <Esc>:w<CR>l
+    vnoremap <C-s> <Esc>:w<CR>
+
+    """ customize variable
+    " disable bell
+    set vb t_vb=
+    set cursorcolumn
+    set nobackup
+    " set noundofile
+    set undodir=~/.undodir
+    set autoread
+    set autowriteall
+endfunction
