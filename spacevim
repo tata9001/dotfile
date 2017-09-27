@@ -1,76 +1,81 @@
-" Put layers you want to enable as well as extra private plugins
-function! UserInit()
+" Let Vim and NeoVim shares the same plugin directory.
+" Comment it out if you don't like
+let g:spacevim_plug_home = '~/.vim/plugged'
 
-    let g:spacevim_leader = "<\Space>"
-    let g:spacevim_localleader = ','
+" Enable the existing layers in space-vim
+function! Layers()
 
-    " Put the layers you want to enable
-    Layer 'airline'
-    Layer 'programming'
-    Layer 'chinese'
-    Layer 'text-align'
-    Layer 'git'
-    Layer 'auto-completion'
-    " Layer 'python'
+  " Default layers
+  Layer 'fzf'
+  Layer 'unite'
+  Layer 'better-defaults'
 
-    " Put private plugins
-    Plug 'yggdroot/indentline'
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'davidhalter/jedi-vim'
-    Plug 'ekalinin/dockerfile.vim'
-    Plug 'ervandew/supertab'
-    Plug 'rking/ag.vim'
-
-    " Exclude plugins
-    Exclude 'Raimondi/delimitMate'
-    Exclude 'vim-scripts/errormarker.vim'
+  " Custom layers
+  Layer 'airline'
+  Layer 'programming'
+  Layer 'code-snippets'
+  Layer 'editing'
+  Layer 'auto-completion'
+  Layer 'python'
+  Layer 'docker'
+  Layer 'text-align'
+  Layer 'ctrlp'
 
 endfunction
 
-" Customize configuration
+" Add your own plugins
+function! UserInit()
+
+  " let g:spacevim_leader = "<\Space>"
+  let g:spacevim_localleader = ','
+
+  " Install personal plugins
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'szw/vim-smartclose'
+  Plug 'tkhoa2711/vim-togglenumber'
+  Plug 'vim-scripts/togglenumber'
+
+endfunction
+
+" Override the default settings as well as adding extras
 function! UserConfig()
 
-    color space-vim-dark
-    let g:airline_powerline_fonts=1
-    let g:ctrlp_match_window_bottom = 1
-    let g:ctrlp_max_height = 20
-    let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
-    let g:UltiSnipsExpandTrigger = '<tab>'
+  " If you have installed the powerline fonts and want to enable airline layer
+  let g:airline_powerline_fonts=1
+  color space-vim-dark
 
-    "  jedi-vim plugin {
-       let g:jedi#completions_enabled = 1
-       let g:jedi#auto_initialization = 1
-       let g:jedi#auto_vim_configuration = 1
-       let g:jedi#use_tabs_not_buffers = 1
-       let g:jedi#use_splits_not_buffers = "left"
+  " Use gui colors in terminal if available
+  if has('termguicolors')
+    set termguicolors
+    if g:spacevim_tmux
+      " If use vim inside tmux, see https://github.com/vim/vim/issues/993
+      " set Vim-specific sequences for RGB colors
+      let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+      let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    endif
+  endif
+  """ customize config
+  "" .bashrc or .zshrc add "stty -ixon"
+  nnoremap <C-s> :w<CR>
+  inoremap <C-s> <Esc>:w<CR>l
+  vnoremap <C-s> <Esc>:w<CR>
+  "" keymaps
+  noremap <silent><leader>tn :call ToggleNumber()<CR>
+  nnoremap <Leader>tp :setlocal paste!<CR>
+  nnoremap <Leader>fR :source %<CR>
 
-       " default Keybinding
-       let g:jedi#goto_assignments_command = "<leader>ga"
-       let g:jedi#goto_definitions_command = "<leader>gf"
-       let g:jedi#documentation_command = "<Leander>gd"
-       let g:jedi#usages_command = "<leader>gu"
-       let g:jedi#completions_command = "<C-Space>"
+  inoremap jj <Esc>
+  vnoremap v <Esc>
+  nnoremap H ^
+  nnoremap L $
 
-		" disable for python
-	   if !exists('g:neocomplete#sources#omni#input_patterns')
-		   let g:neocomplete#sources#omni#input_patterns = {}
-	   endif
-	   let g:neocomplete#sources#omni#input_patterns.python = ''
-    " }
+  "" set
+  set vb t_vb=
+  set mouse-=a
+  set autoread
+  set autowriteall
 
-    """ customize config
-    "" .bashrc or .zshrc add "stty -ixon"
-    nnoremap <C-s> :w<CR>
-    inoremap <C-s> <Esc>:w<CR>l
-    vnoremap <C-s> <Esc>:w<CR>
+  "" smartclose
+  let g:smartclose_default_mapping_key = '<C-g>'
 
-    """ customize variable
-    " disable bell
-    set vb t_vb=
-    set cursorcolumn
-    set nobackup
-    " set noundofile
-    set undodir=~/.undodir
-    set autoread
-    set autowriteall
 endfunction
