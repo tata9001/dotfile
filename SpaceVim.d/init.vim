@@ -41,13 +41,13 @@ endif
 
 let g:spacevim_default_indent = 4
 let g:spacevim_max_column     = 80
-let g:spacevim_colorscheme = 'spacemacs-theme'
+"let g:spacevim_colorscheme = 'spacemacs-theme'
 
 "let mapleader = "<space>"
 let g:spacevim_windows_leader = 's'
 let g:spacevim_unite_leader = 'f'
 
-let g:spacevim_guifont = 'DejaVu\ Sans\ Mono\ for\ Powerline\ 11'
+let g:spacevim_guifont = 'Source\ Code\ Pro\ for\ Powerline\ 13'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              Custom Keybindings                              "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -89,6 +89,7 @@ nnoremap <Leader>xd :StripWhitespace<CR>
 "                                Custom Plugins                               "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" nerdcommenter
+
 map <Leader>;; <Plug>NERDCommenterToggle
 
 "" smartclose

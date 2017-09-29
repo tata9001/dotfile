@@ -61,13 +61,12 @@ function! UserConfig()
   vnoremap <C-s> <Esc>:w<CR>
   "" keymaps
   noremap <silent><leader>tn :call ToggleNumber()<CR>
-  nnoremap <Leader>tp :setlocal paste!<CR>
   nnoremap <Leader>fR :source %<CR>
 
-  inoremap jj <Esc>
-  vnoremap v <Esc>
-  nnoremap H ^
-  nnoremap L $
+  inoremap <C-P> <Up>
+  inoremap <C-N> <Down>
+  cnoremap <C-A> <Home>
+  cnoremap <C-E> <End>
 
   "" set
   set vb t_vb=
