@@ -74,6 +74,7 @@ function! UserConfig()
   set mouse-=a
   set autoread
   set autowriteall
+  set wrap
 
   "" smartclose
   let g:smartclose_default_mapping_key = '<C-g>'
