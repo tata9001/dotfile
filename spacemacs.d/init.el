@@ -231,7 +231,7 @@
   (setq create-lockfiles nil)
   (setq which-key-side-window-max-height 0.8)
   (setq which-key-side-window-max-width 0.1)
-  (setq-default tab-width 2)
+  (setq-default tab-width 4)
   ;; (setq mac-command-modifier 'super) ; make cmd key do Meta
   ;; (setq mac-option-modifier 'meta) ; make opt key do Super
   ;; neotree ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
