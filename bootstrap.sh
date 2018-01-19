@@ -27,6 +27,7 @@ install_brew(){
     brew install the_silver_searcher
     brew install tmux tree ccat autojump htop iftop fzf zsh
 
+    brewinstall figlet
     # Remove outdated versions from the cellar.
     brew cleanup
 
