@@ -45,6 +45,7 @@ export EDITOR='vim'
 export CLICOLOR=1
 export LSCOLORS=Fxbxaxdxcxegedabagacad
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 if [ "$TERM" = "xterm" ]; then
   export TERM=xterm-256color
@@ -55,9 +56,11 @@ fi
 ###############################################################################
 
 ## python
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--system-site-packages'
-export VIRTUALENVWRAPPER_SCRIPT=`which virtualenvwrapper.sh`
-source virtualenvwrapper_lazy.sh
+#export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--system-site-packages'
+#export VIRTUALENVWRAPPER_SCRIPT=`which virtualenvwrapper.sh`
+#source virtualenvwrapper_lazy.sh
+
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 ###############################################################################
 #                              Addtional Settings                             #
