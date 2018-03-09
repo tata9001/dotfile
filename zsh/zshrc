@@ -35,6 +35,8 @@ zplug "modules/homebrew", from:prezto
 zplug "plugins/autojump", from:oh-my-zsh
 zplug "supercrabtree/k"
 
+zplug "jonmosco/kube-ps1", use:kube-ps1.sh
+
 zplug load
 
 ###############################################################################
@@ -51,6 +53,7 @@ if [ "$TERM" = "xterm" ]; then
   export TERM=xterm-256color
 fi
 
+PROMPT='$(kube_ps1)'$PROMPT
 ###############################################################################
 #                                   Environments                              #
 ###############################################################################
