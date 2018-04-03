@@ -35,7 +35,7 @@ zplug "modules/homebrew", from:prezto
 zplug "plugins/autojump", from:oh-my-zsh
 zplug "supercrabtree/k"
 
-zplug "jonmosco/kube-ps1", use:kube-ps1.sh
+# zplug "jonmosco/kube-ps1", use:kube-ps1.sh
 
 zplug load
 
@@ -53,7 +53,6 @@ if [ "$TERM" = "xterm" ]; then
   export TERM=xterm-256color
 fi
 
-PROMPT='$(kube_ps1)'$PROMPT
 ###############################################################################
 #                                   Environments                              #
 ###############################################################################
@@ -63,7 +62,7 @@ PROMPT='$(kube_ps1)'$PROMPT
 #export VIRTUALENVWRAPPER_SCRIPT=`which virtualenvwrapper.sh`
 #source virtualenvwrapper_lazy.sh
 
-fpath=(/usr/local/share/zsh-completions $fpath)
+#fpath=(/usr/local/share/zsh-completions $fpath)
 
 ###############################################################################
 #                              Addtional Settings                             #
@@ -97,3 +96,5 @@ alias -s gz='tar -xzvf'
 alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

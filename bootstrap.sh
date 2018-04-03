@@ -17,8 +17,8 @@ install_brew(){
     # Install command-line tools using Homebrew.
     brew install brew-cask
     brew install emacs-mac --HEAD --with-official-icon --with-ctags  --with-gnutls
-    # brew install vim --with-lua  ---with-override-system-vi --HEAD
-    brew install neovim  --HEAD
+    brew install vim --with-lua  ---with-override-system-vi --HEAD
+    #brew install neovim  --HEAD
     brew install universal-ctags --HEAD
     brew install findutils moreutils coreutils
     brew install gnu-sed --with-default-names
